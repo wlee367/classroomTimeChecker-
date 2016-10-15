@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <%= stylesheet_link_tag "home" %>
+    
+    <title>Western Room Checker</title>
+</head>
+
+<script>
+    
+$(document).ready(function(){
+    
+    function updateTime(){
+        var myDate = new Date();
+        var hours = myDate.getHours();
+        var min = myDate.getMinutes();
+        var seconds = myDate.getSeconds();
+        if(seconds.toString().length == 1){seconds = "0" + seconds;}
+        document.getElementById('time').innerHTML = "The time currently is: " + hours + ":" + min + ":" + seconds;
+    }
+
+    updateTime();
+    
+    $('#sbutton').click(function(){
+        var dest = document.getElementById('search').value;
+        window.location.href = "/room/" + dest;
+    }); 
+    
+    setInterval(updateTime, 1000);
+
+});
+    
+
+</script>
+
+<body>
+                
+<div class="container-fluid">
+  <h1 class="text-center top-buffer" style = "text-align:center;">Class Room for Me</h1>
+  <h4 class="text-center" style = "text-align:center;">Is my classroom free right now?</h4>
+  
+  <div class="row top-buffer">
+    <div class="box col-xs-12 col-sm-6 col-sm-offset-3">
+      <label for="form-control">your room:</label>
+      <div class="input-group">
+      <input id = "search" type="text" class="form-control" placeholder="ex: UCC-55">
+      <span class="input-group-btn">
+        <button id="sbutton" class="btn btn-default" type="button">search</button>
+      </span>
+    </div><!-- /input-group -->
+    </div>
+   </div>
+  
+  <div class="row">
+    <div class="info col-xs-12 col-md-6 col-md-offset-3">
+      <p id = "time">
+       The time currently is: 
+      </p>
+      <p>Instructions: </p>
+      <ol>
+        <li>In the serach box, type in the classroom that you are looking for</li>
+        <li>Make sure your search query is in this format: </li>
+        
+        <li> [BUILDING ABBREVIATIONS] + [ROOM NUMBER]</li>
+        <li>Example: SSC 2050, UCC 55, MC 105     </li>
+        
+      </ol>
+
+    <p>Don't know your Building abbreviations? <a href="http://www.uwo.ca/westerndir/help/buildings.html" target="_blank">Click Here</a>
+      </p>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

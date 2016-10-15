@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #2F2F2F;
+}
+
+h1 {
+  font-family: Arial Rounded Mt Bold;
+  color: white;
+}
+
+p {
+  font-family: Avenir Next;
+  color: white;
+  font-size: 14px;
+}
+
+.answer {
+  margin-top: 20px;
+}
+
+table {
+  margin: 0 auto;
+  font-family: Avenir Next;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  
+  th:nth-child(1) {
+   font-size: 15px;
+    font-weight: 500;
+    padding-right: 30px;
+  }
+  
+  th:nth-child(2) {
+    font-weight: 200;
+  }
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: Demi Bold;
+}
+
+.glyphicon {
+  font-size: 40px;
+  color: #38FF0E;
+  margin-top: 20px;
+}
