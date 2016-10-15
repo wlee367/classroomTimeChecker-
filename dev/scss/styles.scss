@@ -1,0 +1,99 @@
+.landing {
+  body {
+    margin: 0;
+    padding: 0;
+    background: #2F2F2F;
+  }
+
+  h1 {
+    font-family: Arial Rounded Mt Bold;
+    color: white;
+  }
+
+  .box {
+    background: #4F2D82;
+    border-radius: 4px;
+    padding: 20px;
+
+    label {
+      color: white;
+      font-family: Avenir Next;
+      font-weight: Demi Bold;
+      font-size: 18px;
+    }
+
+    button {
+      background: #2F2F2F;
+      color: white;
+      border: none;
+      height: 34px;
+      font-weight: Demi Bold;
+      font-family: Avenir next;
+      font-size: 20px;
+      text-shadow: none;
+      line-height: 20px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .info {
+    margin-top: 20px;
+
+    p {
+      color: white;
+      font-size: 14px;
+    }
+  }
+}
+
+.details {
+  body {
+    margin: 0;
+    padding: 0;
+    background: #2F2F2F;
+  }
+
+  h1 {
+    font-family: Arial Rounded Mt Bold;
+    color: white;
+  }
+
+  p {
+    font-family: Avenir Next;
+    color: white;
+    font-size: 14px;
+  }
+
+  .answer {
+    margin-top: 20px;
+  }
+
+  table {
+    margin: 0 auto;
+    font-family: Avenir Next;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    th:nth-child(1) {
+     font-size: 15px;
+     font-weight: 500;
+     padding-right: 30px;
+   }
+
+   th:nth-child(2) {
+    font-weight: 200;
+  }
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: Demi Bold;
+}
+
+.glyphicon {
+  font-size: 40px;
+  color: #38FF0E;
+  margin-top: 20px;
+}
+}
