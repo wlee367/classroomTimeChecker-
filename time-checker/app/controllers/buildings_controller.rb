@@ -66,17 +66,19 @@ class BuildingsController < ApplicationController
     end
     
     def show
-        abrevs = ["3M", "AFAR", "AH", "AHB", "AR", "AWC", "BGG", "BGSB", "BUC", "CB", "CHB", "CLMP", "CO", "EC", "FEB", "FPC", "HSB", "HUC", "IGAB", "IVEY", "KB", "KUC", "LB", "LRI", "LWH", "MB", "MC", "MOG", "MSB", "NCB", "PAB", "SH", "SSC", "TC", "TEB", "TH", "TL", "TRAC", "UC", "UCC", "VAC", "WCS", "WL", "WSC"]
+        abrevs = ["3M", "AH", "AHB", "AWC", "BGSB", "BUC", "CB", "CHB", "CLMP", "EC", "FEB", "HSB", "HUC", "IVEY", "KB", "KUC", "LB", "LWH", "MB", "MC", "MOG", "MSB", "NCB", "PAB", "SH", "SSC", "TC", "TEB", "TH", "UC", "UCC", "WCS", "WL", "WSC"]
         
-        long = ["3M Centre", "Advanced Facioptionty For Avain Research", "Alumni Hall", "Arts and Humanities Building", "Government of Canada Agriculture Institute", "Alumni Western Centre","3M Biological and Geological Greenhouse" ,"Biological and Geological Sciences Building","Brescia University College", "Coloption Building", "Chemistry Building", "Claudette Mackay-Lassonde Pavillon", "Cronyn Observatory", "Elborne College", "John George Althouse Faculty of Education Building", "Fraunhofer Project Centre for Composites Research", "Arthur and Sonia Labatt Health Sciences Building", "Huron University College","International Graduate Affairs Building", "Richard Ivey Building", "Kresege Building", " King's University College", "Josephine Spencer Niblett Law Building", "Lawson Research Institute", "Lawson Hall", "Music Building", "Middlesex College", "The Gordon J. Mogenson Building", "Medical Sciences building", "North Campus Building", "Physics and Astronomy Building", "Somerville House", "Social Science Centre", "Talbot College", "Thomposon Engineering Building", "Thames Hall", "Allyn and Betty Taylor Library", "Thompson Recreation and Athletic Centre", "Western Continuing Studies", "Weldon Library", "Laurene O. Paterson Western Science Centre"]
+        long = ["3M Centre", "Alumni Hall", "Arts and Humanities Building", "Alumni Western Centre","Biological and Geological Sciences Building","Brescia University College", "Coloption Building", "Chemistry Building", "Claudette Mackay-Lassonde Pavillon", "Elborne College", "John George Althouse Faculty of Education Building", "Arthur and Sonia Labatt Health Sciences Building", "Huron University College", "Richard Ivey Building", "Kresege Building", " King's University College", "Josephine Spencer Niblett Law Building",  "Lawson Hall", "Music Building", "Middlesex College", "The Gordon J. Mogenson Building", "Medical Sciences building", "North Campus Building", "Physics and Astronomy Building", "Somerville House", "Social Science Centre", "Talbot College", "Thomposon Engineering Building", "Thames Hall","University College", "University Community Centre" "Western Continuing Studies", "Weldon Library", "Laurene O. Paterson Western Science Centre"]
         
         @title = long[abrevs.index(params["building"])]
+        
+        @bname = params["building"]
         
         @time = Time.new
         @rooms = Room.where(building: params["building"])
         @military_curr = (@time.hour.to_s + ":" + @time.min.to_s)
-        #cd = time.wday
-        @cd = 2
+        @cd = @time.wday
+        #@cd = 2
         if(@cd == 0 or @cd == 6) # If it's the weekend. 
             @curr_day = "we"
         else
