@@ -1,92 +1,158 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    
-    <!-- jQuery -->
-    <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    
-    <%= stylesheet_link_tag "home" %>
-    
-    <title>Western Room Checker</title>
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+  <!-- jQuery -->
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+  <title>Western Room Checker</title>
 </head>
 
+    <%= stylesheet_link_tag "home" %>
+
 <script>
-    
-$(document).ready(function(){
-    
-    function updateTime(){
-        var myDate = new Date();
-        var hours = myDate.getHours();
-        var min = myDate.getMinutes();
-        var seconds = myDate.getSeconds();
-        if(seconds.toString().length == 1){seconds = "0" + seconds;}
-        document.getElementById('time').innerHTML = "The time currently is: " + hours + ":" + min + ":" + seconds;
-    }
-
-    updateTime();
-    
-    $('#sbutton').click(function(){
-        var dest = document.getElementById('search').value;
-        window.location.href = "/room/" + dest;
-    }); 
-    
-    setInterval(updateTime, 1000);
-
-});
-    
-
+  $(document).ready(function(){
+      
+      function updateTime(){
+          var myDate = new Date();
+          var hours = myDate.getHours();
+          var min = myDate.getMinutes();
+          var seconds = myDate.getSeconds();
+          if(seconds.toString().length == 1){seconds = "0" + seconds;}
+          document.getElementById('time').innerHTML = "The time currently is: " + hours + ":" + min + ":" + seconds;
+      }
+  
+      updateTime();
+      
+      $('#sbutton').click(function(){
+          var dest = document.getElementById('search').value;
+          window.location.href = "/room/" + dest;
+      });
+      
+      $('#fbutton').click(function(){
+          var drop = document.getElementById('drop')
+          var dest = drop.options[drop.selectedIndex].value;
+          window.location.href = "/buildings/" + dest;
+      });
+      
+      setInterval(updateTime, 1000);
+  
+  });
 </script>
 
 <body>
-                
-<div class="container-fluid">
-  <h1 class="text-center top-buffer" style = "text-align:center;">Class Room for Me</h1>
-  <h4 class="text-center" style = "text-align:center;">Is my classroom free right now?</h4>
-  
-  <div class="row top-buffer">
-    <div class="box col-xs-12 col-sm-6 col-sm-offset-3">
-      <label for="form-control">your room:</label>
-      <div class="input-group">
-      <input id = "search" type="text" class="form-control" placeholder="ex: UCC-55">
+
+  <div class="container-fluid">
+    <h1 class="text-center top-buffer" style="text-align:center;">Class Room for Me</h1>
+    <h4 class="text-center" style="text-align:center;">Is my classroom free right now?</h4>
+
+    <div class="row top-buffer">
+      <div class="box col-xs-12 col-sm-6 col-sm-offset-3">
+        <label for="form-control">search by building:</label>
+        <div class="input-group">
+          
+          <select class = "dropdown" id = "drop">
+             <option value = "3M"> 3M Centre</option>
+             <option value = "AFAR"> Advanced Facioptionty For Avian Research</option>
+             <option value = "AH"> Alumni Hall</option>
+             <option value = "AHB"> Arts and Humanities Building</option>
+             <option value = "AR"> Government of Canada Agriculture Insitutue</option>
+             <option value = "AWC"> Alumni Western Centre (BMO)</option>
+             <option value = "BGG"> 3M Biological and Gelogical Greenhouses</option>
+             <option value = "BGSB"> Biological and Geological Sciences Building</option>
+             <option value = "BUC"> Brescia University College</option>
+             <option value = "CB"> Coloptionp Building</option>
+             <option value = "CHB"> Chemistry Building</option>
+             <option value = "CLMP"> Claudette Mackay-Lassonde Pavillon</option>
+             <option value = "CO"> Cronyn Observatory</option>
+             <option value = "EC"> Elborne College </option>
+             <option value = "FEB"> John George Althouse Faculty of Education Building</option>
+             <option value = "FPC"> Fraunhofer Project Centre for Composites Research</option>
+             <option value = "HSB"> Arthur and Sonia Labatt Health Sciences Building</option>
+             <option value = "HUC"> Huron University College</option>
+             <option value = "IGAB"> International Graduate Affairs Building</option>
+             <option value = "IVEY"> Richard Ivey Building</option>
+             <option value = "KB"> Kresege Building</option>
+             <option value = "KUC"> King's University College</option> 
+             <option value = "LB"> Josephine Spencer Niblett Law Building</option>
+             <option value = "LRI"> Lawson Research Institute</option>
+             <option value = "LWH"> Lawson Hall</option>
+             <option value = "MB"> Music Building</option>
+             <option value = "MC"> Middlesex College</option>
+             <option value = "MOG"> The Gordon J. Mogenson Building</option>
+             <option value = "MSB"> Medical Sciences Building</option>
+             <option value = "NCB"> North Campus Building</option>
+             <option value = "PAB"> Physics and Astronomy Building</option>
+             <option value = "SH"> Somerville House</option>
+             <option value = "SSC"> Social Science Centre</option>
+             <option value = "TC"> Talbot College</option>
+             <option value = "TEB"> Thompson Engineering Building</option>
+             <option value = "TH"> Thames Hall</option>
+             <option value = "TL"> Allyn and Betty Taylor optionbrary</option>
+             <option value = "TRAC"> Thompson Recreation and Athletic Centre</option>
+             <option value = "UC"> University College</option>
+             <option value = "UCC"> University Community College</option>
+             <option value = "VAC"> John Labatt Visual Arts Centre</option>
+             <option value = "WCS"> Western Continuing Studies</option>
+             <option value = "WL"> Weldon Library</option>
+             <option value = "WSC"> Laurence O. Paterson Western Science Centre</option>
+        </select>
+
+          <span class="input-group-btn">
+        <button id="fbutton" class="btn btn-default" type="button">find</button>
+      </span>
+
+          
+
+        </div>
+        <!-- /input-group -->
+      </div>
+    </div>
+
+       <div class="row top-buffer">
+  <div class="box col-xs-12 col-sm-6 col-sm-offset-3">
+    <label for="form-control">search by room:</label>
+    <div class="input-group">
+      <input id="search" type="text" class="form-control" placeholder="ex: UCC-55">
       <span class="input-group-btn">
         <button id="sbutton" class="btn btn-default" type="button">search</button>
       </span>
-    </div><!-- /input-group -->
+
     </div>
-   </div>
-  
-  <div class="row">
-    <div class="info col-xs-12 col-md-6 col-md-offset-3">
-      <p id = "time">
-       The time currently is: 
-      </p>
-      <p>Instructions: </p>
-      <ol>
-        <li>In the serach box, type in the classroom that you are looking for</li>
-        <li>Make sure your search query is in this format: </li>
-        
-        <li> [BUILDING ABBREVIATIONS] + [ROOM NUMBER]</li>
-        <li>Example: SSC 2050, UCC 55, MC 105     </li>
-        
-      </ol>
+        <!-- /input-group -->
+      </div>
+    </div>
+    
+    
+    <div class="row">
+      <div class="info col-xs-12 col-md-6 col-md-offset-3">
+        <p id="time">
+          The time currently is:
+        </p>
+        <p>Instructions: </p>
+        <ol>
+          <li>Choose to either search by room or by building.</li>
+          <li>To search by room, use the following format: <br> BUILDING ABBREVIATION - ROOM NUMBER <br> Example: SSC-2050, UCC-55, MC-105</li>
 
-    <p>Don't know your Building abbreviations? <a href="http://www.uwo.ca/westerndir/help/buildings.html" target="_blank">Click Here</a>
-      </p>
+        </ol>
 
+        <p>Don't know your building abbreviations? <a href="../abbreviations" target="_blank">Click Here!</a>
+        </p>
+
+      </div>
     </div>
   </div>
-</div>
 
 </body>
+
 </html>

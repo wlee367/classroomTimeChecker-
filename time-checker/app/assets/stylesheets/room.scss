@@ -2,48 +2,104 @@ body {
   margin: 0;
   padding: 0;
   background: #2F2F2F;
-}
-
-h1 {
-  font-family: Arial Rounded Mt Bold;
-  color: white;
-}
-
-p {
   font-family: Avenir Next;
   color: white;
-  font-size: 14px;
 }
 
-.answer {
-  margin-top: 20px;
-}
-
-table {
-  margin: 0 auto;
-  font-family: Avenir Next;
-  color: white;
-  font-size: 14px;
-  letter-spacing: 1px;
-  
-  th:nth-child(1) {
-   font-size: 15px;
-    font-weight: 500;
-    padding-right: 30px;
+.intro {
+  h1 {
+    font-family: Arial Rounded Mt Bold;
   }
-  
-  th:nth-child(2) {
-    font-weight: 200;
+  .glyphicon {
+    font-size: 40px;
+    margin: 20px 0 20px 0;
+  }
+  .glyphicon-remove {
+    color: #FF0404;
+  }
+  .glyphicon-ok {
+    color: #38FF0E;
+  }
+  p {
+    font-size: 20px;
   }
 }
 
-h2 {
-  font-size: 15px;
-  font-weight: Demi Bold;
+.card {
+  background: #4F2D82;
+  border-radius: 4px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  
+  h1 {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 10px 0;
+  }
+  table {
+    font-size: 14px;
+    margin: 0 auto;
+    th:nth-child(1) {
+      font-weight: Demi Bold;
+      padding-right: 100px;
+    }
+    th:nth-child(2) {
+      font-weight: 300;
+      text-align: right;
+    }
+  }
 }
 
-.glyphicon {
-  font-size: 40px;
-  color: #38FF0E;
-  margin-top: 20px;
+.table {
+  margin-top: 70px;
+  
+  .day {
+    .card {
+      font-weight: medium;
+      font-size: 18px;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+      
+      h2 {
+        font-size: 20px;
+        font-weight: Demi Bold;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .table {
+    text-align: center;
+    
+    .day {
+      display: inline-block;
+      min-width: 150px;
+      border-right: 1px solid white;
+      margin-right: 5px;
+      padding-right: 9px;
+      
+      .card {
+        display: table;
+        min-width: 130px;
+      }
+    }
+    
+    .day:last-child {
+      border: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .table {
+    .day {
+      h2 {
+        margin-top: 40px;
+      }
+    }
+  }
 }

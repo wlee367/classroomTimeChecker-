@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <!-- jQuery -->
+    <script   src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <title>Western Room Checker</title>
+   
+    <%= stylesheet_link_tag "buildings" %>
+    
+</head>
+
+<body>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-12">
+                <h1 class = "center top-buffer"><%= @title %></h1>
+                
+                <p class = "name top-buffer"><%= "Showing all rooms in the " + @rooms.first.building + ":" %></p>
+
+               <table id = "build_tab" class = "col-md-12">
+                   <tr>
+                       <th>Room Number</th>
+                       <th>Today's Class Times</th>
+                       <th>Current Availability</th>
+                    </tr>
+                   <% @rooms.each do |r| %>
+                    <tr>
+                        <td><a href= <%= "/room/" + r.identifier %>><%= r.building + "-" + r.r_num %></a></td>
+                        <% a = "" %>
+                        <% is_free = true %>
+                        <% courses = Course.where(location: r.identifier) %>
+                        <% courses.each do |c| %>
+                            <% if(c.days.include?(@curr_day)) %>
+                                <% a = a + (c.start + " - " + c.end) + " | " %>
+                            <% elsif(@curr_day == "we") %>
+                                <% a = "Weekend, no classes." %>
+                            <% end %>
+                            <% if compare(@military_curr, @cd, c.start, c.end, c.days) %>
+                                <% is_free = false %> 
+                            <% end %>
+                        <% end %>
+                        <td><%= "| " + a %></td>
+                        <td><%= is_free ? "Availible" : "Not Availible" %></td>
+                    </tr>
+                   <% end %>
+               </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

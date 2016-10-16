@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #2F2F2F;
+}
+
+h1 {
+  font-family: Arial Rounded Mt Bold;
+  text-align:center;
+  color: white;
+}
+
+p {
+  font-family: Avenir Next;
+  color: white;
+  font-size: 14px;
+}
+
+.answer {
+  margin-top: 20px;
+}
+
+table {
+  margin: 0 auto;
+  font-family: Avenir Next;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  
+  th:nth-child(1) {
+   font-size: 15px;
+    font-weight: 500;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+    th:nth-child(2) {
+        font-weight: 200;
+  }
+    th{
+        text-align: center;
+    }
+  td{
+    text-align:center;
+}
+  tr{
+    text-align:center;
+}
+}
+
+h2 {
+  font-size: 15px;
+  font-weight: Demi Bold;
+}
+
+.glyphicon {
+  font-size: 40px;
+  color: #38FF0E;
+  margin-top: 20px;
+}

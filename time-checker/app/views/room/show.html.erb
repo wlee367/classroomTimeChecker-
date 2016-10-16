@@ -15,82 +15,144 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	<%= stylesheet_link_tag "room" %>
 	
 </head>
 <body>
-	<section class="details">
+	<div class="container-fluid">
+  
+  <div class="row text-center intro">
+    <h1>Class Room for Me</h1>
+      <% if @is_free %>
+          <% glyph = "glyphicon glyphicon-ok" %>
+      <% else %>
+          <% glyph = "glyphicon glyphicon-remove" %>
+      <% end %>
+      <span aria-hidden="true" class =  "<%= glyph %>"></span>
+       <% if @is_free %>
+          <p><%= @room_loc + " is not in use!" %></p>
+        <% else %>
+          <p><%= @room_loc + " is in use." %></p>
+      <% end %>
+  </div>
+  
+  <div class="row">
+    <div class="card col-xs-12 col-sm-6 col-md-3">
+      <h1>business for noobs</h1>
+      <table>
+        
+        <tr>
+          <th>starts: </th>
+          <th>11 am</th>
+        </tr>
+        
+        <tr>
+          <th>ends: </th>
+          <th>3 pm</th>
+        </tr>
+        
+        <tr>
+          <th>weekday: </th>
+          <th>Tuesday</th>
+        </tr>
+        
+        <tr>
+          <th>building: </th>
+          <th>Business</th>
+        </tr>
+        
+      </table>
+    </div>
+  </div>
+  
+<div class="table">
 
-		<div class="container-fluid">
-			<div class="row text-center">
-				<h1>WUCC</h1>
-				<span class="glyphicon glyphicon-ok" aria-hidden="true">
-				</span>
-			</div>
+    <div class="day">
+      <h2>Monday</h2>
 
-			<div class="answer row text-center">
-                <p>is free: <%= @is_free %></p>
-				<p>Room 12321 is free until 3pm</p>
-			</div>
+    <% @courses.each do |c| %>
+      <% if c.days.include?("M") %>
+      <div class="card">
+          <h2><%= c.typeS %></h2>
+        <p><%= c.start %></p>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <p><%= c.end %></p>
+      </div>
+      <% end %>
+    <% end %>
 
-			<div class="row">
-				<h2>Details:</h2>
-				<table>
-					<tr>
-						<th>building:</th>
-                        <th><%= @courses.first.location %></th>
-					</tr>
-					<tr>
-						<th>next course:</th>
-						<th>macro economy</th>
-					</tr>
-					<tr>
-						<th>starts:</th>
-						<th>4:50 pm:</th>
-					</tr>
-					<tr>
-						<th>ends:</th>
-						<th>6 pm:</th>
-					</tr>
-				</table>
-			</div>
-			
-			<div class="row">
-				<h2>Details:</h2>
-				<table>
-                    <% @courses.each do |c| %>
-                        <tr>
-                            <th>building:</th>
-                            <th><%= c.location %></th>
-                        </tr>
-                        <tr>
-                            <th>next course:</th>
-                            <th>macro economy</th>
-                        </tr>
-                        <tr>
-                            <th>starts:</th>
-                            <th><%= c.start %></th>
-                        </tr>
-                        <tr>
-                            <th>ends:</th>
-                            <th><%= c.end %></th>
-                        </tr>
-                        <tr>
-                            <th>days:</th>
-                            <th><%= c.days %></th>
-                        </tr>
-                    <% end %>
-				</table>
-			</div>
-			
-		</div>
+     </div>
+    
+     <div class="day">
+      <h2>Tuesday</h2>
 
-	</section>
+    <% @courses.each do |c| %>
+      <% if c.days.include?("T") %>
+      <div class="card">
+        <h2><%= c.typeS %></h2>
+        <p><%= c.start %></p>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <p><%= c.end %></p>
+      </div>
+      <% end %>
+      <% end %>
+
+     </div>
+
+     <div class="day">
+      <h2>Wednesday</h2>
+
+     <% @courses.each do |c| %>
+      <% if c.days.include?("W") %>
+      <div class="card">
+        <h2><%= c.typeS %></h2>
+        <p><%= c.start %></p>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <p><%= c.end %></p>
+      </div>
+      <% end %>
+      <% end %>
+
+     </div>
+
+     <div class="day">
+      <h2>Thursday</h2>
+      
+      <% @courses.each do |c| %>
+      <% if c.days.include?("H") %>
+      <div class="card">
+        <h2><%= c.typeS %></h2>
+        <p><%= c.start %></p>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <p><%= c.end %></p>
+      </div>
+      <% end %>
+      <% end %>
+      
+     </div>
+
+     <div class="day">
+      <h2>Friday</h2>
+      
+      <% @courses.each do |c| %>
+      <% if c.days.include?("F") %>
+      <div class="card">
+        <h2><%= c.typeS %></h2>
+        <p><%= c.start %></p>
+        <span class="glyphicon glyphicon-arrow-down"></span>
+        <p><%= c.end %></p>
+      </div>
+      <% end %>
+      <% end %>
+      
+     </div>
+
+      </div>
+    </div>
 
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- change for distribution -->
-<script src="dev/script.js"></script>
 </html>

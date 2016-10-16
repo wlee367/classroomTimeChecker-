@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #2F2F2F;
+}
+
+h1,h4 {
+  font-family: Arial Rounded Mt Bold;
+  color: white;
+}
+
+h1{
+    font-size: 55px;
+}
+
+p{
+  color:white;
+}
+
+#build_tab tr{
+    padding: 30px;
+}
+
+#build_tab th, #build_tab tr{
+  color:white;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+#build_tab tr:nth-child(even){
+  background-color:rgba(200,200,200,0.8);
+}
+
+#build_tab tr:nth-child(odd){
+  background-color:rgba(100,100,100,0.8);
+}
+
+.name{
+  font-size:20px;
+}
+
+#build_tab{
+  width:500px;
+  text-align: center;
+}
+.top-buffer{ 
+    margin-top: 50px;
+}
+
+.box {
+  background: #4F2D82;
+  border-radius: 4px;
+  padding: 20px;
+  
+  label {
+    color: white;
+    font-family: Avenir Next;
+    font-weight: Demi Bold;
+    font-size: 18px;
+  }
+  
+}

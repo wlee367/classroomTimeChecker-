@@ -1,6 +1,12 @@
 class RoomController < ApplicationController
     def index
+        alphabet = ["a%","b%","c%","d%","e%","f%","g%","h%","i%","j%","k%","l%","m%","n%","o%","p%","q%","r%","s%","t%","u%","v%","w%","x%","y%","z%"]
         
+        @rooms = []
+        
+        alphabet.each_with_index do |letter, i|
+            @rooms.push(Room.where('identifier LIKE ?', letter).order(:identifier))
+        end
     end
     
     def day_to_char(day)
@@ -19,6 +25,7 @@ class RoomController < ApplicationController
         end
     end
     
+    # Horrible method but straped for time.
     def compare(curr, curr_d, startT, endT, days)
         
         if(curr_d == 0 or curr_d == 6) # If it's the weekend. 
@@ -54,15 +61,15 @@ class RoomController < ApplicationController
         
         if currH == endH
             return currM < endM
-        end
-        
-        puts "---------------ERROR SHOULDNT GET HERE----------------"
-            
+        end       
     end
     
     def show
-        @courses = Course.where(location: params[:location])
+        @courses = Course.where(location: params[:location]).order(:start)
+        
         @is_free = true;
+        
+        @room_loc = params[:location]
         
         time = Time.new
         military_curr = (time.hour.to_s + ":" + time.min.to_s)

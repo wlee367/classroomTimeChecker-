@@ -26,16 +26,16 @@
     <div class = "container">
         <div class = "row">
             <div class = "col-md-12">
-                <h1 class = "center top-buffer">CLASS ROOMS</h1>
+                <h1 class = "center top-buffer">BUILDINGS</h1>
                 <br>
             </div>
         </div>
         
         <div class = "row">
             <div class = "col-md-12">
-                <% @rooms.each do |letter_arr| %>
-                    <% letter_arr.each do |r|%>
-                        <h6 class = "center" style = "text-align:center;"><a href = <%= "../room/" + r.identifier %>><%= r.identifier %></a></h6>
+                <% @buildings.each do |build| %>
+                    <% build.each do |b| %>
+                        <h6 class = "center" style = "text-align:center;"><a href = <%= "../building/" + b.building %>><%= b.building %></a></h6>
                     <% end %>
                     <br>
                 <% end %>
