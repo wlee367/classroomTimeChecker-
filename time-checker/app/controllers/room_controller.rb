@@ -92,7 +92,7 @@ class RoomController < ApplicationController
         current_day = time.wday
         
         #military_curr = "13:30"
-        current_day = 2
+        #current_day = 2
         
         @text_day = int_to_day(current_day)
         
