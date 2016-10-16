@@ -77,8 +77,8 @@ class BuildingsController < ApplicationController
         @time = Time.new
         @rooms = Room.where(building: params["building"])
         @military_curr = (@time.hour.to_s + ":" + @time.min.to_s)
-        @cd = @time.wday
-        #@cd = 2
+        #@cd = @time.wday
+        @cd = 2
         if(@cd == 0 or @cd == 6) # If it's the weekend. 
             @curr_day = "we"
         else
