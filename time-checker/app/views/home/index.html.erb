@@ -29,6 +29,7 @@
           var min = myDate.getMinutes();
           var seconds = myDate.getSeconds();
           if(seconds.toString().length == 1){seconds = "0" + seconds;}
+          if(min.toString().length == 1){min = "0" + min;}
           document.getElementById('time').innerHTML = "The time currently is: " + hours + ":" + min + ":" + seconds;
       }
   
@@ -63,34 +64,23 @@
           
           <select class = "dropdown" id = "drop">
              <option value = "3M"> 3M Centre</option>
-             <option value = "AFAR"> Advanced Facioptionty For Avian Research</option>
              <option value = "AH"> Alumni Hall</option>
              <option value = "AHB"> Arts and Humanities Building</option>
-             <option value = "AR"> Government of Canada Agriculture Insitutue</option>
-             <option value = "AWC"> Alumni Western Centre (BMO)</option>
-             <option value = "BGG"> 3M Biological and Gelogical Greenhouses</option>
              <option value = "BGSB"> Biological and Geological Sciences Building</option>
              <option value = "BUC"> Brescia University College</option>
-             <option value = "CB"> Coloptionp Building</option>
              <option value = "CHB"> Chemistry Building</option>
              <option value = "CLMP"> Claudette Mackay-Lassonde Pavillon</option>
-             <option value = "CO"> Cronyn Observatory</option>
              <option value = "EC"> Elborne College </option>
              <option value = "FEB"> John George Althouse Faculty of Education Building</option>
-             <option value = "FPC"> Fraunhofer Project Centre for Composites Research</option>
              <option value = "HSB"> Arthur and Sonia Labatt Health Sciences Building</option>
              <option value = "HUC"> Huron University College</option>
-             <option value = "IGAB"> International Graduate Affairs Building</option>
              <option value = "IVEY"> Richard Ivey Building</option>
              <option value = "KB"> Kresege Building</option>
              <option value = "KUC"> King's University College</option> 
              <option value = "LB"> Josephine Spencer Niblett Law Building</option>
-             <option value = "LRI"> Lawson Research Institute</option>
              <option value = "LWH"> Lawson Hall</option>
              <option value = "MB"> Music Building</option>
              <option value = "MC"> Middlesex College</option>
-             <option value = "MOG"> The Gordon J. Mogenson Building</option>
-             <option value = "MSB"> Medical Sciences Building</option>
              <option value = "NCB"> North Campus Building</option>
              <option value = "PAB"> Physics and Astronomy Building</option>
              <option value = "SH"> Somerville House</option>
@@ -98,13 +88,7 @@
              <option value = "TC"> Talbot College</option>
              <option value = "TEB"> Thompson Engineering Building</option>
              <option value = "TH"> Thames Hall</option>
-             <option value = "TL"> Allyn and Betty Taylor optionbrary</option>
-             <option value = "TRAC"> Thompson Recreation and Athletic Centre</option>
-             <option value = "UC"> University College</option>
              <option value = "UCC"> University Community College</option>
-             <option value = "VAC"> John Labatt Visual Arts Centre</option>
-             <option value = "WCS"> Western Continuing Studies</option>
-             <option value = "WL"> Weldon Library</option>
              <option value = "WSC"> Laurence O. Paterson Western Science Centre</option>
         </select>
 
@@ -123,7 +107,7 @@
   <div class="box col-xs-12 col-sm-6 col-sm-offset-3">
     <label for="form-control">search by room:</label>
     <div class="input-group">
-      <input id="search" type="text" class="form-control" placeholder="ex: UCC-55">
+      <input id="search" type="text" class="form-control" placeholder="ex: SSC-2050">
       <span class="input-group-btn">
         <button id="sbutton" class="btn btn-default" type="button">search</button>
       </span>
@@ -142,7 +126,7 @@
         <p>Instructions: </p>
         <ol>
           <li>Choose to either search by room or by building.</li>
-          <li>To search by room, use the following format: <br> BUILDING ABBREVIATION - ROOM NUMBER <br> Example: SSC-2050, UCC-55, MC-105</li>
+          <li>To search by room, use the following format: <br> BUILDING ABBREVIATION - ROOM NUMBER <br> Example: SSC-2050, UCC-53, MB-341</li>
 
         </ol>
 
