@@ -15,7 +15,7 @@
     <!-- jQuery -->
     <script   src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
-    <title>Western Room Checker</title>
+    <title>Class Room For Me</title>
    
     <%= stylesheet_link_tag "buildings" %>
     
@@ -40,7 +40,7 @@
                         <td><a href= <%= "/room/" + r.identifier %>><%= r.building + "-" + r.r_num %></a></td>
                         <% a = "" %>
                         <% is_free = true %>
-                        <% courses = Course.where(location: r.identifier) %>
+                        <% courses = Course.where(location: r.identifier).order(:start) %>
                         <% courses.each do |c| %>
                             <% if(c.days.include?(@curr_day)) %>
                                 <% a = a + (c.start + " - " + c.end) + " | " %>
@@ -52,7 +52,7 @@
                             <% end %>
                         <% end %>
                         <td><%= "| " + a %></td>
-                        <td><%= is_free ? "Availible" : "Not Availible" %></td>
+                        <td><%= is_free ? "Availiable" : "Not Availiable" %></td>
                     </tr>
                    <% end %>
                </table>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>WUCC</title>
+	<title>Class Room For Me</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,7 +42,7 @@
     <% if not @is_free %>
   <div class="row">
     <div class="card col-xs-12 col-sm-6 col-md-3">
-        <h1><%= @unsat.typeS %></h1>
+        <h1><%= @unsat.typeS + " " + @unsat.code %></h1>
       <table>
         
         <tr>
