@@ -1,83 +1,45 @@
-# classroomTimeChecker-
+# Classroom Time Checker
 
-## Inspiration
-**One day, a young Western University student named Jason Lee sat and wondered:**
+Classroom time checker helps you to find an empty classroom to study in, especially if you are looking to find a room before class and will like to hang out in the room beforehand.
 
-_How can I see if there is a class going on at the classroom I need to be at in 40 minutes_
+Read more on the Devpost entry (submitted to Hack Western 3): https://devpost.com/software/classroomfor-me
 
-**Then he messaged 3 young developers from the Hack Western 3 Slack chat**
+## Screenshots
 
-**He met Joshua Arts, who is a developer comfortable with backend technologies such as Ruby on Rails.**
+![picture](http://i.imgur.com/SViOEIw.png)
+![picture](http://i.imgur.com/3ngRPUD.png)
+![picture](http://i.imgur.com/3aN8JH6.png)
 
- **Then he met Lars Nolden, who is a German developer that came to this hackathon SOLELY for developing this project. Just kidding, he took my mock ups from balsamiq and implemented it using bootstrap and beautiful HTML/CSS code.**
+## Prerequisites for building and running the project
 
-**Last, but not least, he was joined by the amazing Michael Song. He is a fellow Western Student and a far more superior programmer than you probably are. No but seriously, he's good.** 
+You can easily build and run this project on your system! Before starting, please ensure that you have the following properly configured:
 
-## What it does
+* Git
+* Ruby 2.3.1
+* Rails 5.0.0.1
+* MySQL
 
- **It provides western students with a _slick_ website that displays available classrooms that are empty and not being used by a class. Students will be able to use this to find extra study rooms during exam season.**
+## Building and running
 
-## How we built it
+Clone the repository onto your local system:
 
-**MAD PURE SKILLS BABY**
+```
+git clone git@github.com:wlee367/classroomTimeChecker-.git
 
-**No but for reals, this was the process:**
+cd classroomTimeChecker-/time-checker
+```
 
-1. Use Selenium to automate data gathering process
+Edit config/database.yml and change the username (line 16), password (line 17) and socket (lines 18 and 23) to correspond with the credentials and path for your MySQL database.
 
-2. Scrape Western Time Tables with Python using Requests and Beautiful Soup libraries 
+Now you can continue with installing and running the app:
 
-3. Set up Ruby on Rails project for back end 
+```
+bundle install
 
-4. Designed the templates for each site
+rake db:seed
+rake db:create db:migrate
 
-5. Implemented the templates using Bootstrap, HTML, SCSS, and Javascript 
+rails server
+```
 
-6. Efficiently stored classrooms data in a MySQL database
-
-7. Linked Ruby on Rails project with the database
-
-8. Published web application to make it available for students. 
-
-
-## Challenges we ran into
-
-**Thanks to mentors and sponsors, we were able to successfully build the project we had in our vision. Some examples of the challenges include:** 
-
-1. Figuring out how to "fool" the Western Time Table "refresh capcha robot" (Turns out it was pretty stupid)
-
-2. Exporting to a CSV using python - shoutout to Google
-
-3. Seeding the data from the CSV into the database - shout out to Mark and Corey from Media Sonar who helped us a lot
-
-4. Automating the process of data gathering - which was solved using Selenium
-
-5. Putting the website on the servers. 
-
-## Accomplishments that we're proud of
-
-1. Finishing a hackathon project in one weekend.
-
-2. Working successfully as a team even though we all met at the hackathon. 
-
-3. Overcoming tough programming challenges. 
-
-## What we learned
-
-**A lot, to be honest** 
-
-
-**But let's see:** 
-
-1. Web scraping with Python
-2. Database handling with MySQL and Ruby on Rails
-3. HTML/CSS - We knew this before, but we feel like we improved a lot in this area
-4. How to delegate tasks and manage projects properly among a small team
-5. Motivating each other 
-6. How to sleep on a table 
-
-## What's next for classroomfor.me
-
-1. **EXPANSION BABY** - The next step for classroomfor.me is to serve other universities as well, not just Western University. 
-
-2. University endorsement from **Western**
+Now open a browser, and visit: [localhost:3000](http://localhost:3000/)
